@@ -1,0 +1,1 @@
+answer = ["Je n'ai pas compris la question","Peux tu reformuler ta question?","Je ne vois pas de quoi tu parle"]
