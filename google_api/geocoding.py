@@ -4,7 +4,7 @@ class Geocoding:
 
     def __init__(self,keywords):
         # variable d'environement
-        self.gmaps = googlemaps.Client(key='AIzaSyBdEpqf8TD9vorJAgaWauOG1oNnQmST5Ps')
+        self.gmaps = googlemaps.Client(key='')
         self.keywords = keywords
 
     def geocode(self): # ne pas mettre le meme noms de fonction que l'API ( ici mon geocode)
