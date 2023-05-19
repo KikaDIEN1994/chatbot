@@ -1,12 +1,17 @@
-<head>
-    <title>ChatBot</title>
-</head>
-
-<form>
+<form action = "/question" method="POST">
     <label for="question">Poser votre question</label><br>
     <input type="text" id="question" name="question"><br>
+    <button id="question1">Envoyer</button>
+    <p id="demo"></p>
 </form>
+<!--
+<script>
+    const element = document.getElementById("question1");
+    element.addEventListener("click", function() {
+      document.getElementById("demo").innerHTML = "Hello World";
+    });
+    </script>
+    -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 
 </html>
-
