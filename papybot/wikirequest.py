@@ -1,4 +1,4 @@
-from requests import get
+import requests
 
 class WikiRequest:
 
@@ -6,7 +6,7 @@ class WikiRequest:
         self.lat = lat
         self.lng = lng
 
-    def _get_pageid(self):
+    def get_pageid(self):
         lat_lng = "|".join([str(self.lat), str(self.lng)])
         parameters = {
             "action": "query",
@@ -14,18 +14,13 @@ class WikiRequest:
             "gscoord": lat_lng,
             "format": "json",
         }
-        response = get("https://fr.wikipedia.org/w/api.php", params=parameters)
+
+        response = requests.get("https://fr.wikipedia.org/w/api.php", params=parameters)
         data = response.json()
-
-        print(data,(
-
-        ),"data 1")
         pageid = data["query"]["geosearch"][0]["pageid"]
-        #print(pageid)
         return pageid
 
-    def get_summary(self):
-        pageid = self._get_pageid()
+    def get_summary(self, pageid):
         parameters = {
             "action": "query",
             "format": "json",
@@ -37,12 +32,17 @@ class WikiRequest:
             "pageids": pageid,
         }
 
-        response = get("https://fr.wikipedia.org/w/api.php", params=parameters)
+        response = requests.get("https://fr.wikipedia.org/w/api.php", params=parameters)
         data = response.json()
-        print(data,"data 2")
         summary = data["query"]["pages"][str(pageid)]["extract"]
+        #print(data)
+        #print(data["query"]["pages"])
+       # print(data["pages"])
+       # print(data["extract"])
         return summary
 
+"""
 wikirequest = WikiRequest(48.85837009999999,2.2944813)
-
-print(wikirequest.get_summary())
+pageid = wikirequest.get_pageid()
+print(wikirequest.get_summary(pageid))
+"""

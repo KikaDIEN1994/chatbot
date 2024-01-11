@@ -1,0 +1,1 @@
+request_nok_sentence = ["Peux tu reformuler ta question?","Je n'ai pas trouver de reponse","je n'ai rien trouver a se sujet peut tu preciser","je ne suis pas sur de ta question","je n'ai rien trouver sur ca"]

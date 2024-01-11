@@ -29,6 +29,8 @@ class Parser:
             if word not in stopwords:
                 keywords.append(word)
         keywords = ' '.join(keywords)
+        if keywords == "":
+            keywords = "input vide"
         return keywords
 
 
